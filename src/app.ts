@@ -1,7 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
-import config from './config'
 import { registerRoutes } from './routes'
 
 const app = express()
