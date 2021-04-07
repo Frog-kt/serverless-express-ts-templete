@@ -1,0 +1,30 @@
+service:
+  name: serverless-templete
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-northeast-1
+  stage: ${opt:stage, 'dev'}
+  profile: ${opt:profile, 'default'}
+  apiGateway:
+    minimumCompressionSize: 1024
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+functions:
+  hello:
+    handler: src/handler.handler
+    timeout: 30
+    events:
+      - http: ANY /
+      - http: "ANY {proxy+}"
