@@ -1,10 +1,8 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
+import config from './config'
 import { registerRoutes } from './routes'
-
-dotenv.config()
 
 const app = express()
 
