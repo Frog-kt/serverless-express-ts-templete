@@ -16,10 +16,10 @@ pnpm install
 
 ```bash
 # local
-npm run dev
+pnpm run dev
 
 # test
-npm test
+pnpm test
 
 # Lambda Local
 serverless offline
